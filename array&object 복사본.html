@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h4 class="product">상품제목</h4>
+    <p class="text">상품내용</p>
+    <div style="margin-bottom:500px;"></div>
+
+    <script>
+        var 어레이 = ['BMW', 520];
+        var 오브젝트 = { brand : 'BMW', model : 520 };
+        var 자료 = [ { brand : 'BMW' }, { model : 520 } ];
+
+        // let product = document.querySelector('.product');
+        // product.innerHTML = 어레이[0];
+        // document.querySelector('.text').innerHTML = 어레이[1];
+        document.querySelector('.text').innerHTML = 자료[1].model;
+
+        $('.product').html(어레이[0]);
+        // $('.text').html(오브젝트.model);
+        // $('.text').html(자료[1].model);
+    </script>
+</body>
+</html>

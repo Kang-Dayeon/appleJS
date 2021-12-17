@@ -1,0 +1,16 @@
+.grey{
+    background-color:lightgray;
+    height:2000px;
+    margin-top:500px;
+}
+.image{
+    position:sticky;
+    top:100px;
+    float:right;
+    width:800px;
+}
+.text{
+    float: left;
+    width:400px;
+    font-size:30px;
+}

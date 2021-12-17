@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/card.css">
+    <title>Hello, world!</title>
+</head>
+<body>
+    <div class="card-background">
+        <div class="card-box">
+            <img src="./img/card1.png" alt="">
+        </div>
+        <div class="card-box">
+            <img src="./img/card2.png" alt="">
+        </div>
+        <div class="card-box">
+            <img src="./img/card3.png" alt="">
+        </div>
+    </div>
+
+    <script>
+        $(window).scroll(function(){
+            var 높이 = $(window).scrollTop();
+            // console.log(높이);
+            //721~1264까지 스크롤을 내리면 첫째카드의 opacity 1~0으로 서서히 변경
+            //서서히 변경하는 함수를 만듬(1차함수로)
+            //높이가 721이면 y값은 1(opacity)임
+            //높이가 1264이면 y값은 0임
+            //y = a * 높이 + b;
+            //1. 1 = a * 721 + b
+            //2. 0 = a * 1264 + b
+            //1과 2를 빼준다 왼쪽끼리=오른쪽끼리
+            // 결과 : 1 = 543a ==> a = -1/543
+            // 0 = -1/543 * 1264
+            var y = (-1/543) * 높이 + 1264/543;
+            var z = (-1/5430) * 높이 + 6151/5430;
+            $('.card-box').eq(0).css('opacity', y);
+            $('.card-box').eq(0).css('transform', 'scale('+z+')');
+            var t = (-1/793) * 높이 + (2031/793);
+            var j = (-1/7930) * 높이 + (9168/7930);
+            $('.card-box').eq(1).css('opacity', t);
+            $('.card-box').eq(1).css('transform', 'scale('+j+')');
+        });
+    </script>
+</body>
+</html>

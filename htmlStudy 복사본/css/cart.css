@@ -1,0 +1,16 @@
+.flex-container{
+    display:flex;
+    height:50px;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    background-color: gray;
+}
+.flex-item div{
+    float: left;
+    margin-left:10px;
+}
+.flex-item div:last-child{
+    margin-left:0;
+}

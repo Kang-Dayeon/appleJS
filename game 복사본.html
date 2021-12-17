@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+function 삼육구(num){
+    const numSt = num.toString();//매개변수를 문자열로 바꿔줌
+    let last_char = numSt.charAt(numSt.length-1);//문자열의 마지막 글자를 변수에 넣어줌
+    if(last_char == 3 || last_char == 6 || last_char == 9){
+        //마지막 글자가 3 또는 6 또는 9라면 참 콘솔에 박수라고 뜸
+        console.log('박수');
+    } else {
+        console.log('통과');
+    }
+}
+</script>
+
+</body>
+</html>

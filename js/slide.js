@@ -1,4 +1,11 @@
 // 슬라이드 스크립트
+
+//pagination클릭시함수
+function cssPlus(vw){
+    $('.slide-container').removeClass('transforming');
+    $('.slide-container').css('transform','translateX(-'+ vw +'vw)');
+    $('.slide-container').addClass('transforming');
+};
 $('.slide-1').click(function(){
     cssPlus(0)
 });
@@ -9,12 +16,7 @@ $('.slide-3').click(function(){
     cssPlus(200)
 });
 
-//pagination클릭시함수
-function cssPlus(vw){
-    $('.slide-container').removeClass('transforming');
-    $('.slide-container').css('transform','translateX(-'+ vw +'vw)');
-    $('.slide-container').addClass('transforming');
-};
+
 //transform추가함수
 function addTransforming(){
     $('.slide-container').removeClass('transforming');

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button>버튼</button>
+        <h1>abcde</h1>
+    </div>
+
+    <script>
+        //버튼을 누르면
+        //h1을 빈칸으로 만들고 
+        //0.5초 후에 a를 h1안에 더함
+        //0.5초 후에 b를 h1안에 더함
+        //0.5초 후에 c를 h1안에 더함
+        var h1태그 = document.querySelector('h1');
+        var 글씨 = document.querySelector('h1').innerHTML;
+        $('button').click(function(){
+            h1태그.innerHTML = '';
+            for(let i = 0; i < 글씨.length; i++){
+                setTimeout(function(){
+                    h1태그.innerHTML = h1태그.innerHTML + 글씨[i];
+                }, 500 * i);
+            }
+        });
+
+
+    </script>
+</body>
+</html>

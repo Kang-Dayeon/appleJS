@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 'use strict'; // 이걸쓰면 javascript를 더 엄격하게 쓸 수 있음 (ie10이상) => strict모드
+        
+        //1. this의 첫번째 뜻 : window
+        //window : javascript안의 기본 함수들이 들어있는 object(수납공간)
+        console.log(this); // --> window라는 object가 뜸
+
+        function 함수(){
+            console.log(this);
+        }
+        함수()
+        // --> 애도 window라는 object가 뜸 
+        //strict모드로 일반함수안에 this를쓰면 undefined가 나옴
+
+        //2. this의 두번째 뜻 : 오브젝트 안에서의 this -> 메소드를 가지고 있는 오브젝트
+        var object = {
+            data : 'kim',
+            함수 : function(){ // 오브젝트 안에 있는 함수를 메소드라고함
+                console.log(this);
+            }
+        }
+        console.log(object.data);
+
+        object.함수(); 
+        // 오브젝트 내 함수에서 this를 쓰면 그 함수를 가지고 있는 오브젝트를 뜻함
+
+
+        var 오브젝트 = {
+            data : {
+                함수 : function(){
+                    console.log(this);
+                }
+            }
+        }
+        //여기서 this는 오브젝트.data를 가리킴
+
+        var 오브젝트 = {
+            data : {
+                함수 : () => { //신문법 arrow function
+                    console.log(this);
+                }
+            }
+        }
+        //신문법을 쓰면 this는 상위요소의 this를 그대로 씀
+
+        //3. this의 세번째 뜻 : constructor안에서의 this
+        function Constructor(){
+            this.name = 'kim'; //새로 생성되는 오브젝트 : instance
+        }
+
+        var object = new Constructor;
+        //여기서의 this는 새로 생성되는 오브젝트를 뜻함
+
+        //4. this의 네번째 뜻 : 이벤트리스너 안에서의 this = e.currentTarget;
+        document.getElementById('#btn').addEventListener('click', function(e){
+            console.log(this);
+            console.log(e.currentTarge);
+            //둘이 같은 뜻 지금 이벤트가 동작하는 곳  = #btn
+        })
+        
+
+    </script>
+</body>
+</html>

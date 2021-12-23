@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Quicksand:wght@300;400;500&family=Roboto:wght@100;300;400&display=swap');
+*{margin: 0;padding: 0;box-sizing: border-box;color: black;font-family: 'Noto Sans KR', sans-serif;font-family: 'Quicksand', sans-serif;font-family: 'Roboto', sans-serif;}
+ul,li{list-style: none;}
+a,a:hover,a:focus{text-decoration: none;color: black;}
+img{vertical-align: middle;}
+
+@mixin anchor() {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgb(41, 41, 41);
+    font-size: 18px;
+    color: white;
+    transition: all 0.5s;
+    &:hover,
+    &:focus{
+        background-color: rgb(240, 90, 178);
+        color: white;
+    }
+}
+@mixin pointcolor() {
+    color: rgb(68, 66, 181);
+}
+.is-active{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.header{
+    width: 100%;
+    &__inner{
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 100px;
+        margin:0 auto;
+        width: 100%;
+        height: 100px;
+        transition: all 0.3s;
+    }
+    a{
+        display: block;
+    }
+    i{
+        font-size: 50px;
+        color: white;
+        transition: all 0.3s;
+    }
+}
+.header__background{
+    background-color: white;
+}
+.header__size{
+    i{
+        font-size: 40px;
+        color: rgb(68, 66, 181);
+    }
+}
+.nav{
+    position: fixed;
+    top: 0;
+    right: -9999px;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    transition: all 0.3s;
+    &__wrap{
+        position: relative;
+        float: right;
+        width: 500px;
+        height: 100%;
+    }
+    &__logo{
+        position: absolute;
+        left: 50px;
+        top: 30px;
+        i{
+            font-size: 50px;
+            color: white;
+        }
+    }
+    &__white{
+        padding:150px 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(68, 66, 181);
+    }
+    &__anchor{
+        padding:30px;
+        display: block;
+        text-align: center;
+        font-size: 30px;
+        color: white;
+        transition: all 0.3s;
+        &:hover,
+        &:focus{
+            background: white;
+            border-radius: 30px;
+            color: rgb(68, 66, 181);
+        }
+    }
+    &__close{
+        position: absolute;
+        right: 40px;
+        top: 20px;
+        padding:10px;
+        display: block;
+        i{
+            font-size: 50px;
+            color: white;
+        }
+    }
+}
+.active{
+    position: fixed;
+    top: 0;
+    right:0;
+}
+
+.section{
+    padding: 100px 0;
+    &:first-child{
+        padding-top: 200px;
+        padding-bottom: 0;
+        height: 900px;
+        background: linear-gradient(rgb(133, 133, 240), rgb(68, 66, 181));
+    }
+    &:last-child{
+        padding-top: 0;
+    }
+    &__inner{
+        overflow: hidden;
+        margin: 0 auto;
+        width: 80%;
+        max-width: 1800px;
+        height: 100%;
+        text-align: center;
+    }
+}
+.visual{
+    height: 100%;
+    background: url(../../img/iphone.png) no-repeat right bottom;
+    background-size: contain;
+    &__left{
+        float: left;
+        width: 40%;
+        text-align: left;
+    }
+    &__title{
+        font-size: 60px;
+        color: white;
+    }
+    &__text{
+        margin-top: 30px;
+        color: white;
+        font-size: 20px;
+    }
+    &__anchor{
+        @include anchor();
+    }
+}
+.etc{
+    &__title{
+        font-size: 35px;
+        font-weight: 500;
+    }
+    &__text{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    &__anchor{
+        @include anchor();
+    }
+}
+.main{
+    &__subtitle{
+        font-size: 20px;
+        color: white;
+        &--black{
+            @include pointcolor();
+        }
+    }
+    &__title{
+        margin-top: 20px;
+        font-size: 40px;
+        font-weight: 500;
+        color: white;
+        &--black{
+            color: black;
+        }
+    }
+}
+.offer{
+    background-color: rgb(68, 66, 181);
+    &__contents{
+        margin-top: 60px;
+        overflow: hidden;
+    }
+    &__item{
+        float: left;
+        width: 25%;
+    }
+    &__icon{
+        padding-top: 35px;
+        margin: auto;
+        width: 130px;
+        height: 130px;
+        background-color: white;
+        border-radius: 50%;
+        text-align: center;
+        i{
+            font-size: 60px;
+            color: rgb(68, 66, 181);
+        }
+    }
+    &__name{
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: 500;
+        color: white;
+    }
+    &__exemple{
+        margin-top: 20px;
+        font-size: 20px;
+        color: white;
+    }
+}
+.ability{
+    margin-top: 50px;
+    &__float{
+        float: left;
+        width: 50%;
+        height: 600px;
+    }
+    &__title{
+        font-size: 35px;
+        color: white;
+    }
+    &__text{
+        margin-top: 30px;
+        font-size: 20px;
+        color: white;
+    }
+    &__top{
+        &--left{
+            background: url(../../img/portfolio-1.jpeg) no-repeat 0 0;
+            background-size: cover;
+        }
+        &--right{
+            background: url(../../img/portfolio-2.jpeg) no-repeat 0 0;
+            background-size: cover;
+        }
+    }
+    &__bottom{
+        &--left{
+            background: url(../../img/portfolio-3.jpeg) no-repeat 0 0;
+            background-size: cover;
+        }
+        &--right{
+            background: url(../../img/portfolio-4.jpeg) no-repeat 0 0;
+            background-size: cover;
+        }
+    }
+    &__hover{
+        display: block;
+        padding: 100px 50px 0 50px;
+        width: 100%;
+        height: 100%;
+        text-align: left;
+        transition: all 0.5s;
+        &:hover,
+        &:focus{
+            border:50px solid white;
+        }
+    }
+}
+.sns{
+    display: flex;
+    justify-content: center;
+    &__item{
+        display: block;
+        padding-top: 30px;
+        margin-left: 40px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: rgb(68, 66, 181);
+        &:first-child{
+            margin-left: 0;
+        }
+        i{
+            font-size: 40px;
+            color: white;
+        }
+    }
+}
+.copyright{
+    margin-top: 50px;
+    font-size: 18px;
+    color: rgb(72, 72, 72);
+}
+@media screen and (max-width: 1080px) {
+    .header{
+        &__inner{
+            padding: 0 50px;
+        }
+    }
+    .section{
+        padding: 70px 0;
+        &:first-child{
+            height: 100vh;
+        }
+        &__inner{
+            width: 90%;
+        }
+    }
+    .visual{
+        background-position: center bottom;
+        background-size: 80%;
+        &__left{
+            float: none;
+            width: 100%;
+            text-align: center;
+        }
+        &__title{
+            font-size: 40px;
+        }
+    }
+    .offer{
+        &__contents{
+            margin-top: 30px;
+        }
+        &__item{
+            float: left;
+            width: 25%;
+        }
+        &__icon{
+            padding-top: 25px;
+            width: 90px;
+            height: 90px;
+            i{
+                font-size: 40px;
+            }
+        }
+        &__name{
+            font-size: 25px;
+        }
+        &__exemple{
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    }
+    .ability{
+        &__float{
+            height: 400px;
+        }
+        &__title{
+            font-size: 25px;
+        }
+        &__text{
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        &__hover{
+            padding: 50px 0 0 30px;
+        }
+    }
+    .sns{
+        &__item{
+            padding-top: 25px;
+            margin-left: 20px;
+            width: 80px;
+            height: 80px;
+            i{
+                font-size: 30px;
+            }
+        }
+    }
+    .copyright{
+        margin-top: 30px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .header{
+        &__inner{
+            padding: 0 30px;
+            height: 80px;
+        }
+        i{
+            font-size: 40px;
+        }
+    }
+    .header__size{
+        i{
+            font-size: 30px;
+        }
+    }
+    .nav{
+        &__wrap{
+            width: 100%;
+        }
+        &__logo{
+            left: 30px;
+            top: 20px;
+            i{
+                font-size: 40px;
+            }
+        }
+        &__white{
+            padding:80px 0;
+        }
+        &__anchor{
+            padding:20px;
+            font-size: 25px;
+        }
+        &__close{
+            right: 20px;
+            top: 10px;
+            i{
+                font-size: 40px;
+            }
+        }
+    }
+    .section{
+        padding: 50px 0;
+        &:first-child{
+            padding-top: 130px;
+            // height: 90vh;
+        }
+    }
+    .visual{
+        &__title{
+            font-size: 30px;
+        }
+        &__text{
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        &__anchor{
+            padding:10px;
+        }
+    }
+    .etc{
+        &__title{
+            font-size: 30px;
+        }
+        &__text{
+            margin-top: 15px;
+            font-size: 16px;
+        }
+        &__anchor{
+            margin-top: 25px;
+            padding: 10px;
+        }
+    }
+    .offer{
+        &__item{
+            float: left;
+            width: 50%;
+            margin-top: 30px;
+            &:nth-child(1),
+            &:nth-child(2){
+                margin-top:0;
+            }
+        }
+        &__icon{
+            padding-top: 15px;
+            width: 60px;
+            height: 60px;
+            i{
+                font-size: 30px;
+            }
+        }
+        &__name{
+            font-size: 20px;
+        }
+        &__exemple{
+            font-size: 12px;
+        }
+    }
+    .main{
+        &__subtitle{
+            font-size: 18px;
+        }
+        &__title{
+            font-size: 30px;
+        }
+    }
+    .ability{
+        &__float{
+            float: none;
+            width: 100%;
+            height: 250px;
+            margin-top: 20px;
+            &:first-child{
+                margin-top: none;
+            }
+        }
+        &__title{
+            font-size: 20px;
+        }
+        &__text{
+            margin-top: 15px;
+            font-size: 12px;
+        }
+        &__hover{
+            padding: 20px 0 0 10px;
+        }
+    }
+    .sns{
+        &__item{
+            padding-top: 15px;
+            width: 50px;
+            height: 50px;
+            i{
+                font-size: 20px;
+            }
+        }
+    }
+    .copyright{
+        margin-top: 20px;
+        font-size: 14px;
+    }
+}

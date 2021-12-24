@@ -4,6 +4,38 @@ ul,li{list-style: none;}
 a,a:hover,a:focus{text-decoration: none;color: black;}
 img{vertical-align: middle;}
 
+@keyframes 흔들리는버튼 {
+    0% {transform: rotate(0deg);};
+    25% {transform: rotate(-10deg);};
+    50% {transform: rotate(10deg);};
+    75% {transform: rotate(-5deg);};
+    100% {transform: rotate(0deg);};
+}
+@keyframes 닫기버튼1 {
+    0% {transform: rotate(45deg) scale(1);};
+    50% {transform: rotate(0deg) scale(1);};
+    100% {transform: rotate(-45deg) scale(1.1);};
+}
+@keyframes 닫기버튼2 {
+    0% {transform: rotate(-45deg) scale(1);};
+    50% {transform: rotate(0deg) scale(1);};
+    100% {transform: rotate(45deg) scale(1.1);};
+}
+@keyframes 메뉴버튼 {
+    0%{transform: scale(1);};
+    25%{transform: scale(0.2);};
+    65%{transform: scale(1.2);};
+    80%{transform: scale(0.5);};
+    100%{transform: scale(1);};
+}
+@keyframes 메뉴{
+    0%{transform: translateX(0);};
+    25%{transform: translateX(-50px);};
+    55%{transform: translateX(30px);};
+    80%{transform: translateX(-10px);};
+    100%{transform: translateX(0);};
+}
+
 @mixin anchor() {
     display: inline-block;
     margin-top: 30px;
@@ -17,6 +49,8 @@ img{vertical-align: middle;}
     &:focus{
         background-color: rgb(240, 90, 178);
         color: white;
+        animation-name: 흔들리는버튼;
+        animation-duration: 0.5s;
     }
 }
 @mixin pointcolor() {
@@ -35,7 +69,7 @@ img{vertical-align: middle;}
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 100px;
+        padding: 0 90px;
         margin:0 auto;
         width: 100%;
         height: 100px;
@@ -43,11 +77,20 @@ img{vertical-align: middle;}
     }
     a{
         display: block;
+        padding:10px;
     }
     i{
         font-size: 50px;
         color: white;
         transition: all 0.3s;
+    }
+    &__menu{
+        &:hover,
+        &:focus{
+            animation-name: 메뉴버튼;
+            animation-duration: 0.8s;
+            animation-timing-function: ease-out;
+        }
     }
 }
 .header__background{
@@ -63,6 +106,7 @@ img{vertical-align: middle;}
     position: fixed;
     top: 0;
     right: -9999px;
+    // right: 0px;
     z-index: 100;
     overflow-y: auto;
     overflow-x: hidden;
@@ -103,6 +147,8 @@ img{vertical-align: middle;}
             background: white;
             border-radius: 30px;
             color: rgb(68, 66, 181);
+            animation-name: 메뉴;
+            animation-duration: 0.7s;
         }
     }
     &__close{
@@ -111,10 +157,44 @@ img{vertical-align: middle;}
         top: 20px;
         padding:10px;
         display: block;
+        &:hover,
+        &:focus{
+            .close-btn--one{
+                animation-name: 닫기버튼1;
+                animation-duration: 0.5s;
+                animation-fill-mode: forwards;
+            }
+            .close-btn--two{
+                animation-name: 닫기버튼2;
+                animation-duration: 0.5s;
+                animation-fill-mode: forwards;
+            }
+        }
         i{
             font-size: 50px;
             color: white;
         }
+    }
+}
+.close-btn{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 50px;
+    height: 8px;
+    border-radius: 10px;
+    background-color: white;
+    &__wrap{
+    // border:1px solid red;
+        position: relative;
+        width: 50px;
+        height: 50px;
+    }
+    &--one{
+        transform: rotate(45deg);
+    }
+    &--two{
+        transform: rotate(-45deg);
     }
 }
 .active{
@@ -166,6 +246,7 @@ img{vertical-align: middle;}
     }
 }
 .etc{
+    padding-bottom: 20px;
     &__title{
         font-size: 35px;
         font-weight: 500;

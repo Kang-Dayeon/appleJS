@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Quicksand:wght@300;400;500&family=Roboto:wght@100;300;400&display=swap");
 * {
   margin: 0;
@@ -22,6 +23,153 @@ img {
   vertical-align: middle;
 }
 
+@-webkit-keyframes 흔들리는버튼 {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes 흔들리는버튼 {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes 닫기버튼1 {
+  0% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(-45deg) scale(1.1);
+  }
+}
+@keyframes 닫기버튼1 {
+  0% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(-45deg) scale(1.1);
+  }
+}
+@-webkit-keyframes 닫기버튼2 {
+  0% {
+    transform: rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(45deg) scale(1.1);
+  }
+}
+@keyframes 닫기버튼2 {
+  0% {
+    transform: rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(45deg) scale(1.1);
+  }
+}
+@-webkit-keyframes 메뉴버튼 {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.2);
+  }
+  65% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes 메뉴버튼 {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.2);
+  }
+  65% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes 메뉴 {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-50px);
+  }
+  55% {
+    transform: translateX(30px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes 메뉴 {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-50px);
+  }
+  55% {
+    transform: translateX(30px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 .is-active {
   overflow-x: hidden;
   overflow-y: hidden;
@@ -37,7 +185,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 100px;
+  padding: 0 90px;
   margin: 0 auto;
   width: 100%;
   height: 100px;
@@ -45,11 +193,20 @@ img {
 }
 .header a {
   display: block;
+  padding: 10px;
 }
 .header i {
   font-size: 50px;
   color: white;
   transition: all 0.3s;
+}
+.header__menu:hover, .header__menu:focus {
+  -webkit-animation-name: 메뉴버튼;
+          animation-name: 메뉴버튼;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
 }
 
 .header__background {
@@ -106,6 +263,10 @@ img {
   background: white;
   border-radius: 30px;
   color: #4442b5;
+  -webkit-animation-name: 메뉴;
+          animation-name: 메뉴;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
 }
 .nav__close {
   position: absolute;
@@ -114,9 +275,46 @@ img {
   padding: 10px;
   display: block;
 }
+.nav__close:hover .close-btn--one, .nav__close:focus .close-btn--one {
+  -webkit-animation-name: 닫기버튼1;
+          animation-name: 닫기버튼1;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.nav__close:hover .close-btn--two, .nav__close:focus .close-btn--two {
+  -webkit-animation-name: 닫기버튼2;
+          animation-name: 닫기버튼2;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
 .nav__close i {
   font-size: 50px;
   color: white;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 50px;
+  height: 8px;
+  border-radius: 10px;
+  background-color: white;
+}
+.close-btn__wrap {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+.close-btn--one {
+  transform: rotate(45deg);
+}
+.close-btn--two {
+  transform: rotate(-45deg);
 }
 
 .active {
@@ -178,8 +376,15 @@ img {
 .visual__anchor:hover, .visual__anchor:focus {
   background-color: #f05ab2;
   color: white;
+  -webkit-animation-name: 흔들리는버튼;
+          animation-name: 흔들리는버튼;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
 }
 
+.etc {
+  padding-bottom: 20px;
+}
 .etc__title {
   font-size: 35px;
   font-weight: 500;
@@ -201,6 +406,10 @@ img {
 .etc__anchor:hover, .etc__anchor:focus {
   background-color: #f05ab2;
   color: white;
+  -webkit-animation-name: 흔들리는버튼;
+          animation-name: 흔들리는버튼;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
 }
 
 .main__subtitle {

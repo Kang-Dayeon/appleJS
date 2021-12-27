@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1. 대괄호 제거하는 문법
+    var array = ['hello', 'wold'];
+    console.log(...array); //-> hello wold 출력됨
+    //2. 문자에 붙이면 펼쳐준다
+    var 문자 = 'hello';;
+    console.log(...문자); // -> 'h','e','l','l','o' 이렇게 한글자씩 펼쳐줌
+
+
+    //어디에 사용 할 수 있을까?
+    //1. 어레이 합치기
+    // var a = [1,2,3];
+    // var b = [4,5];
+
+    // var c = [...a, ...b];
+    // console.log(c); //-> [1,2,3,4,5]로 출력 됨 a랑 b합쳐준것
+
+    //2. deep copy에 유용함
+    // var a = [1,2,3];
+    // var b = [...a];
+
+    // a[3] = 4;
+
+    // console.log(a);//[1,2,3,4] 출력
+    // console.log(b);//[1,2,3] 출력 --> 독립적으로 a를 카피해서 어레이를 만들었기 때문에 a값이 변해도 변하지 않음 이런 것을 deep copy라고함
+
+    //3. 오브젝트 합치기 (deep copy)
+    var object1 = {a : 1, b : 2};
+    var object2 = {...object1, c : 3};
+
+    console.log(object2); // -> {a:1, b:2, c:3}으로 출력됨 
+
+
+  </script>
+</body>
+</html>

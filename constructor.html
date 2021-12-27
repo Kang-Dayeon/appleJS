@@ -20,22 +20,24 @@
         //constructor : object생성기계
         //constructor안의 this : instance라고함. 기계안에 새로 생성되는 object
 
-        // function 기계(이름, 나이){ //constructor만들때 함수이름 보통 영어로 맨앞글자는 대문자로 해야한다 일반함수랑 다르다는 뜻으로 예)Object
-        //     this.name = 이름;
-        //     this.age = 나이;
-        //     this.sayHi = function(){
-        //         console.log('안녕하세요' + this.name + ' 입니다.');
-        //     }
-        // }
+        function 기계(이름, 나이){ //constructor만들때 함수이름 보통 영어로 맨앞글자는 대문자로 해야한다 일반함수랑 다르다는 뜻으로 예)Object
+            this.name = 이름;
+            this.age = 나이;
+            this.sayHi = function(){
+                console.log('안녕하세요' + this.name + ' 입니다.');
+            }
+        }
 
         //상속을 받기 위한 다른 문법 = prototype(유전자)
         //이런 constructor안에는 prototype이 있다 (기계.prototype을 콘솔에 치면 나옴)
         //prototype에 값을 추가하면 모든 자식들이 물려받기 가능함
-        // 기계.prototype.gender = '남';
+        기계.prototype.성 = '남';
         // //이렇게 추가해주면 자식들은 .gender를 사용 할 수 있음
 
-        // var 학생1 = new 기계('kim',15);
-        // var 학생2 = new 기계('kang',18);
+        var 학생1 = new 기계('kim',15);
+        var 학생2 = new 기계('kang',18);
+        console.log(학생1.성);
+        console.log(학생2);
         // //이처럼 기계(부모)가 가지고 있는 속성들을 학생(자식)물려받은것을 상속이라고 함
 
         // //for문을 활용하면 오브젝트를 여러개 뽑을 수 있음
@@ -51,7 +53,7 @@
 
         // console.log(자식.name);//'kim'나옴
 
-        // //자식 age만 바꾸고 싶으면
+        // // //자식 age만 바꾸고 싶으면
         // 자식.age = 20;
         
         // console.log(자식.age);
@@ -84,20 +86,20 @@
         // var student3 = new student('Lee',22);
 
         //es6문법 constructor 만드는법
-        // class 부모 {
-        //     constructor(){
-        //         this.name= 'kim';
-        //         // this.sayHi = function(){ console.log("hello"); } //--> 여기에 쓰면 자식 오브젝트에 물려줌
-        //     }
-        //     sayHi(){
-        //         console.log("hello");
-        //     } //--> 여기에 쓰면 자식 오브젝트에 추가 안됨 부모의 prototype에 추가됨
-        //     //부모의 prototype(유전자)에 추가 해 놓으면 모든 자식들이 똑같이 유전자로 받고 내장함수처럼 쓸 수 있다
-        // }
+        class 부모 {
+            constructor(){
+                this.name= 'kim';
+                // this.sayHi = function(){ console.log("hello"); } //--> 여기에 쓰면 자식 오브젝트에 물려줌
+            }
+            sayHi(){
+                console.log("hello");
+            } //--> 여기에 쓰면 자식 오브젝트에 추가 안됨 부모의 prototype에 추가됨
+            //부모의 prototype(유전자)에 추가 해 놓으면 모든 자식들이 똑같이 유전자로 받고 내장함수처럼 쓸 수 있다
+        }
 
-        // var 자식 = new 부모();
-        // 자식.__proto__; //이 문법으로 부모의 유전자를 확인 할 수 있음
-        // Object.getPrototypeOf(자식); //위에랑 같은 문법 부모 유전자 확인하는 문법
+        var 자식 = new 부모();
+        자식.__proto__; //이 문법으로 부모의 유전자를 확인 할 수 있음
+        Object.getPrototypeOf(자식); //위에랑 같은 문법 부모 유전자 확인하는 문법
 
         //extends : class를 상속받을때 쓰는 문법
         class 할아버지 {

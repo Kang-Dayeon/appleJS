@@ -39,6 +39,15 @@
 
     console.log(object2); // -> {a:1, b:2, c:3}으로 출력됨 
 
+    //4. 함수 파라미터에 넣을때
+    function 더하기(a, b, c){
+      console.log(a + b + c);
+    }
+
+    var arr = [10, 20, 30];
+
+    더하기(...arr); //-> array를 이렇게 풀어서 파라미터로 넣을때 활용 가능함
+
 
   </script>
 </body>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //array안의 내용을 변수에 하나씩 넣고 싶을때
+    // var arr = [2, 3, 4];
+
+    // //이렇게 담을 수 있지만 번거로움
+    // var a = arr[0];
+    // var b = arr[1];
+    // var c = arr[2];
+
+    // //이렇게 쓰면 한번에 넣을 수 있음
+    // //모양만 맞춰 변수를 생성하면 변수를 만들 수 있음
+    // //이것이 바로 destructuring이다
+    // var [a,b,c] = [2, 3, 4];
+
+    // //만약 array destructuring할 때 몇 개 빼먹으면
+    // //이렇게 적으면 디폴트 변수를 지정하여 기본값을 넣을 수 있음
+    // var [a,b,c = 10] = [2, 3];
+
+    // //object 데이터를 빼서 변수를 만들고 싶을때
+    // var obj = { name : 'kim', age : 30};
+
+    // //원래는 이렇게 변수를 만들었다
+    // var name = obj.name;
+
+    // //하지만 destructuring문법을 사용하면 더욱 간단하고 직관적임
+    // //object를 변수로 담으려면 변수명을 key명과 똑같이 써야함 (위치상관없음)
+    // var {name,age} = { name : 'kim', age : 30};
+
+    // //object도 디폴트 파라미터를 넣어 놓을 수 있다
+    // //변수명을 바꾸고 싶으면 :을 쓰고 써야한다 이름이라는 변수가 생성된것
+    // var {name : 이름 ,age = 31} = { name : 'kim'};
+    // //변수명 변경과 디폴트 파라미터를 정하고 싶을때
+    // var {name : 이름 = 'Kang'} = { };
+
+    // //반대로 변수들을 object에 넣고 싶은 경우
+    // var name = 'kim';
+    // var age = 30;
+
+    // //원래는 이렇게 넣었음
+    // var obj = { name : name, age : age};
+    // //es6에서는 key값과 value값이 같으면 이렇게 축약시킬 수 있다
+    // var obj = { name, age};
+
+    // //함수 파라미터 만들때도 destructring문법 사용가능
+    // var obj = { name : 'kim', age : 30};
+
+    // //원래는 이렇게 했음
+    // function 함수(파라미터){
+    //   console.log(파라미터);
+    // }
+    // 함수(obj);
+
+    // //object데이터들을 파라미터로 만들고싶은경우
+    // function 함수( {name, age} ){
+    //   console.log(name); //-> kim 출력
+    //   console.log(age); //-> 30 출력
+    // }
+    // 함수({ name : 'kim', age : 30});
+
+    // //array의 경우
+    // function 함수( [name, age] ){
+    //   console.log(name); //-> 1 출력
+    //   console.log(age); //-> 2 출력
+    // }
+    // 함수([1,2]);
+
+
+    //*연습문제
+    var [number, address] = [30, 'seoul'];
+    var { address : a, number = 20 } = { address, number };
+    //a = seoul address = seoul number = 30
+    console.log(number);
+
+    let 신체정보 = {
+      body: {
+        height: 190,
+        weight: 70
+      },
+      size: ["상의 Large", "바지 30인치"],
+    };
+    //데이터가 얼마나 복잡하든 좌우 형태만 똑같이 맞추면 됨
+    let {
+      body: {
+        height,
+        weight
+      },
+      size: [상의, 하의]
+    } = 신체정보;
+
+    console.log(신체정보.body.height);//->190출력
+
+    </script>
+</body>
+</html>

@@ -1,16 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+    height: 3000px;
+}
 .grey{
-    background-color:lightgray;
-    height:2000px;
     margin-top:500px;
+    height:2000px;
+    background-color:lightsteelblue;
 }
 .image{
     position:sticky;
-    top:100px;
+    top:200px;
     float:right;
-    width:800px;
+    width:50%;
+}
+.image img{
+    width: 100%;
 }
 .text{
+    padding: 20px;
     float: left;
-    width:400px;
-    font-size:30px;
+    width:50%;
+    font-size:25px;
+    color: white;
 }

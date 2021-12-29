@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 제이쿼리 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <img id="test" src="https://codingapple1.github.io/kona.jpg"> 
+  <script>
+    //promise는 ajax나 setTimeout같은 비동기코드를 콜백함수로 작성하고 싶지 않을때 사용한다
+
+    // ** promise 기본 개념 **
+    // promise : 성공 실패 판정하는 기계
+    // var promise = new Promise(function(resolve, reject){//파라미터를 무조건 두개 써줘야함 (성공, 실패)
+    //   var 어려운연산 = 1 + 1;
+    //   resolve(어려운연산); // -> '성공' 파라미터로 결과 값을 받아서 then함수로 보내줌
+    //   // reject(); // -> '실패'
+    // }); 
+    // //위에서 성공 & 실패를 판정 후 밑에 코드 실행한다
+
+    // promise.then(function(결과){// -> 이렇게 파라미터로 결과 값을 받을 수 있다
+    //   console.log('성공 ' + 결과); // -> 성공 2 출력
+    // }).catch(function(){
+    //   console.log('실패');
+    // }).finally(function(){
+    //   console.log('끝');
+    // })
+    //promise 장점 : 이렇게 쓸 수 있어서 코드가 옆으로 길어지지 않음
+    //then : 프로미스가 성공일 경우 실행되는 코드
+    //catch : 프로미스가 실패 할 경우 실행되는 코드
+    //finally : 성공했든 실패했든 실행되는 코드
+
+    //promise 예시
+    // var promise = new Promise(function(resolve, reject){
+    //   setTimeout(function(){
+    //     resolve();
+    //   }, 1000);
+    // });
+    // promise.then(function(){
+    //   console.log('성공');
+    // }).catch(function(){
+    //   console.log('실패');
+    // }).finally(function(){
+    //   console.log('끝');
+    // })
+
+    //promise 특징
+    //promise의 3가지 상태
+    //1. 성공일 경우 <resolved>
+    //2. 판정 대기중 <pending>
+    //3. 실패일 경우 <rejected>
+
+    //연습문제
+    var promise = new Promise(function(resolve, reject){
+      var img = document.getElementById('test');
+      img.addEventListener('load', function(){
+        resolve();
+      });
+      img.addEventListener('error', function(){
+        reject();
+      });
+    });
+    promise.then(function(){
+      console.log('성공');
+    }).catch(function(){
+      console.log('실패');
+    });
+
+    function ajax해주는함수(url){
+      return new Promise(function(resolve, reject){
+        $.ajax({
+          type : 'GET',
+          url : url
+        }).done(function(결과){
+          resolve(결과);
+        });
+      })
+    };
+
+    var ajax = ajax해주는함수('https://codingapple1.github.io/hello.txt');
+
+    ajax.then(function(결과){
+      console.log(결과);
+      return ajax해주는함수('https://codingapple1.github.io/hello2.txt');
+    }).then(function(결과){
+      console.log(결과);
+    });
+
+
+  </script>
+</body>
+</html>

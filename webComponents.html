@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<costom-input name="아이디"></costom-input>
+<costom-input name="비번"></costom-input>
+<!-- name : attribute인데 파라미터처럼 쓸 수 있음 -->
+  <script>
+    //web components는 브라우저 기본 기능임
+
+    class 클래스 extends HTMLElement {
+      connectedCallback(){
+        let name = this.getAttribute('name');
+        this.innerHTML = `<label>${name}인풋</label><input>`
+      }
+    }
+    customElements.define('costom-input', 클래스);
+  </script>
+  
+</body>
+</html>

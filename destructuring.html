@@ -39,7 +39,7 @@
     // //변수명을 바꾸고 싶으면 :을 쓰고 써야한다 이름이라는 변수가 생성된것
     // var {name : 이름 ,age = 31} = { name : 'kim'};
     // //변수명 변경과 디폴트 파라미터를 정하고 싶을때
-    // var {name : 이름 = 'Kang'} = { };
+    // var {name : 이름 = 'Kang', age : 나이 = 31} = { };
 
     // //반대로 변수들을 object에 넣고 싶은 경우
     // var name = 'kim';
@@ -53,18 +53,18 @@
     // //함수 파라미터 만들때도 destructring문법 사용가능
     // var obj = { name : 'kim', age : 30};
 
-    // //원래는 이렇게 했음
+    //원래는 이렇게 했음
     // function 함수(파라미터){
     //   console.log(파라미터);
     // }
     // 함수(obj);
 
     // //object데이터들을 파라미터로 만들고싶은경우
-    // function 함수( {name, age} ){
-    //   console.log(name); //-> kim 출력
-    //   console.log(age); //-> 30 출력
-    // }
-    // 함수({ name : 'kim', age : 30});
+    function 함수( {name, age} ){
+      console.log(name); //-> kim 출력
+      console.log(age); //-> 30 출력
+    }
+    함수({ name : 'kim', age : 30});
 
     // //array의 경우
     // function 함수( [name, age] ){
